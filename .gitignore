@@ -1,0 +1,9 @@
+# Devpost Learn Skill Pack learner profile contains personal learning context
+/devpost/learner-profile.md
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
