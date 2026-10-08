@@ -38,3 +38,11 @@ Confirm the intended audience, minimum demo experience, visual direction, and wh
 
 ## Entrant Decision — 2026-10-08
 The entrant explicitly chose **Option A: interactive simulation**, not a live Codex/Claude Code connector. This approves the project *direction and POC boundary*, not completion of the official Devpost Learn Skill Pack interviews or the entire planning document. The draft remains open for the required learner-led review.
+
+## Confirmed Differentiating Value — 2026-10-08
+The entrant explicitly confirmed: **A human decision must return to the exact original waiting task, and repeated approval must not cause erroneous repeated execution.** The first 60-second demonstration should make this distinction visible rather than only teach that AI needs approval.
+
+### Demonstration acceptance
+Create tasks A and B; approve A and verify B remains pending. Attempt the same decision on A again: the system refuses it without recording another simulated action. Reject B and inspect both task-specific audit histories. The action is a *simulation*, not an external deployment.
+
+This confirms the core product value and scenario, **not blanket sign-off on every planning section or completion of official Skill Pack interviews**.
