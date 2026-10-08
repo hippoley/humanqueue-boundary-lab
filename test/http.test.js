@@ -19,7 +19,11 @@ test('HTTP approval returns to exact waiting task and blocks replay', async () =
     const page = await html.text();
     assert.match(page, /human:\/\//);
     assert.match(page, /Create demo A \+ B/);
-    assert.match(page, /Replay approval/);
+    const labPage = await fetch(url + '/lab');
+    assert.equal(labPage.status, 200);
+    const labHTML = await labPage.text();
+    assert.match(labHTML, /Create demo A \\+ B/);
+    assert.match(labHTML, /Replay approval/);
 
     const a = await request('/api/tasks', 'POST', {
       title: 'Task A', operation: 'Simulate checkout deployment'
