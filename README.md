@@ -69,7 +69,7 @@ Visit **http://localhost:3000/** to see the exact original browser presentation 
 | Invalid decisions fail closed | `test/core.test.js`, `conformance/run.mjs` |
 | Audit events remain linked to the request | `test/http.test.js` |
 
-See [Boundary Invariants](docs/BOUNDARY-INVARIANTS.md) and [Conformance Runner](conformance/README.md). These checks cover the in-memory reference only: **crash recovery, genuine agent resume, authentication and real-world exactly-once execution are not proven**.
+See [Boundary Invariants](docs/BOUNDARY-INVARIANTS.md), [Conformance Runner](conformance/README.md), and [real HumanQueue Gateway interoperability assessment](interop/HUMANQUEUE-GATEWAY.md) (source review only; no live cross-runtime test yet). These checks cover the in-memory reference only: **crash recovery, genuine agent resume, authentication and real-world exactly-once execution are not proven**.
 
 ## A critical distinction: this is NOT the complete HumanQueue runtime
 
