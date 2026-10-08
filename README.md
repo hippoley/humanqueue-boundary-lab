@@ -12,6 +12,13 @@
 
 </div>
 
+
+<p align="center"><img src="docs/assets/human-boundary-hero.svg" alt="Original HumanQueue human-boundary hero illustration" width="100%"></p>
+
+<p align="center"><img src="docs/assets/demo-surface.svg" alt="Original HumanQueue interactive demo surface illustration" width="100%"></p>
+
+> **Asset provenance:** the three SVG files in `docs/assets/` are copied without redesign from the pre-existing [hippoley/HumanQueue](https://github.com/hippoley/HumanQueue/tree/main/docs/assets) project. They are not new contest-period artwork.
+
 ---
 
 ## The product, not just the screen
