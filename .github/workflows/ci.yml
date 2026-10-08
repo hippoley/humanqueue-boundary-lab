@@ -15,3 +15,13 @@ jobs:
         run: node conformance/run.mjs
       - name: Verify external adapter entry point
         run: HUMANQ_ADAPTER=./conformance/adapter.mjs node conformance/run.mjs
+      - name: Negative control must detect cross-task corruption
+        shell: bash
+        run: |
+          set +e
+          HUMANQ_ADAPTER=./conformance/fixtures/broken-cross-task.mjs node conformance/run.mjs > /tmp/negative-control.json
+          status=$?
+          set -e
+          cat /tmp/negative-control.json
+          test "$status" -eq 1
+          node --input-type=module -e "import fs from 'node:fs'; const report=JSON.parse(fs.readFileSync('/tmp/negative-control.json')); if (!report.checks.some(c=>c.name==='wrong_task_protection' && c.status==='FAIL')) process.exit(1)"
