@@ -51,3 +51,6 @@ Confirm audience and design language, whether the actor prompt is acceptable, an
 
 ## Attribution
 Inspired conceptually by pre-existing HumanQueue; this document is a transparent assistant-prepared draft and is **not** evidence the official Skill Pack was run.
+
+## Entrant Decision — 2026-10-08
+The entrant confirmed **Option A**, a browser-based simulated approval flow. Real agent resume and live production actions remain out of scope. The exact layout, actor prompt, and acceptance of this entire PRD remain subject to a genuine `3-prd` review; this document is still a draft.
