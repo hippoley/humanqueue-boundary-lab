@@ -10,6 +10,7 @@ const server=http.createServer(async(req,res)=>{
  try{
   const pathname=new URL(req.url,'http://localhost').pathname;
   if(req.method==='GET'&&pathname==='/')return send(200,fs.readFileSync(path.join(root,'index.html'),'utf8'),'text/html; charset=utf-8');
+  if(req.method==='GET'&&pathname==='/lab')return send(200,fs.readFileSync(path.join(root,'lab.html'),'utf8'),'text/html; charset=utf-8');
   if(req.method==='GET'&&pathname==='/api/state')return send(200,lab.snapshot());
   if(req.method==='POST'&&(pathname==='/api/tasks'||/^\/api\/tasks\/[0-9a-f-]+\/decision$/.test(pathname))){
     let raw='';for await(const chunk of req){raw+=chunk;if(raw.length>8192)return send(413,{error:'Request too large'});}
