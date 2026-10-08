@@ -11,3 +11,5 @@ jobs:
         with:
           node-version: '22'
       - run: npm test
+      - name: Boundary conformance (fail on regressions)
+        run: node conformance/run.mjs
