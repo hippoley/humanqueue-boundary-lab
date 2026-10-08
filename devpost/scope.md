@@ -35,3 +35,6 @@ This is simulation only. An approval never executes a production deployment or r
 
 ## Decisions Needing Entrant Review
 Confirm the intended audience, minimum demo experience, visual direction, and whether this PoC boundary matches your priorities. A learner-led interview with the official Skill Pack is still required before changing this file to `approved`.
+
+## Entrant Decision — 2026-10-08
+The entrant explicitly chose **Option A: interactive simulation**, not a live Codex/Claude Code connector. This approves the project *direction and POC boundary*, not completion of the official Devpost Learn Skill Pack interviews or the entire planning document. The draft remains open for the required learner-led review.
