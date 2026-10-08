@@ -27,3 +27,9 @@ Build With AI: Basics requires a new project built using the official [Devpost L
 
 ## Prior-work disclosure
 Existing [HumanQueue](https://github.com/hippoley/HumanQueue) predated this competition project. Boundary Lab was created separately as a self-contained simulation inspired by that concept. If any prior code, artwork or dependencies are later imported, identify their specific origins and licenses.
+
+## Verified learner decisions recorded on 2026-10-08
+- Chose Option A (standalone interactive simulation, not a production runtime connector).
+- Explicitly confirmed the central demo claim: human approval must return to its exact original task and duplicate approval must not cause a repeated simulated action.
+- Both decisions have been incorporated into `scope.md`, `prd.md`, and `spec.md`, which remain `status: draft` until the complete learner-led Skill Pack process and explicit reviews occur.
+- No claim that official Skill Pack 1-start, 2-scope, 3-prd, or 4-spec has run in the designated coding-agent workspace.
