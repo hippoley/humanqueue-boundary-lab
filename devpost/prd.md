@@ -54,3 +54,15 @@ Inspired conceptually by pre-existing HumanQueue; this document is a transparent
 
 ## Entrant Decision — 2026-10-08
 The entrant confirmed **Option A**, a browser-based simulated approval flow. Real agent resume and live production actions remain out of scope. The exact layout, actor prompt, and acceptance of this entire PRD remain subject to a genuine `3-prd` review; this document is still a draft.
+
+## Confirmed Differentiating Value and 60-second Demo — 2026-10-08
+The entrant explicitly selected: **the human decision must return to the original task, and duplicate approval must not cause an incorrect repeat execution.** Prioritize showing task identity and replay protection over a generic approval-button experience.
+
+### Demo acceptance criteria
+1. Create two distinct pending tasks, A and B, with visible IDs.
+2. Approve A. A becomes `simulated_completed` while B remains `awaiting_human`.
+3. Replay approval for A through the API. Expect HTTP 409 with no new audit events or simulated continuation.
+4. Reject B. Verify a separate `simulation.stopped` event exists for B.
+5. Explain explicitly that no external operation was executed.
+
+Only this core user outcome is confirmed by the entrant. Visual styling, actor-entry interaction, and full PRD approval still require review.
