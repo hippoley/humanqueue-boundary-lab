@@ -1,9 +1,9 @@
 # Devpost Learn Skill Pack — genuine completion record
 
-**Status: not completed.** This document is an execution worksheet, not evidence of Skill Pack usage.
+**Status: planning drafts present; official learner-led Skill Pack process not completed.** This document is an execution worksheet, not evidence of Skill Pack usage.
 
 ## Why this matters
-Build With AI: Basics requires a new project built using the official [Devpost Learn Skill Pack](https://github.com/challengepost/learn-ai-basics), and the resulting `scope.md`, `prd.md`, `spec.md`. The existing standalone source code is a working prototype, **not** proof that the mandatory process has happened.
+Build With AI: Basics requires a new project built using the official [Devpost Learn Skill Pack](https://github.com/challengepost/learn-ai-basics), and the resulting `scope.md`, `prd.md`, `spec.md`. The existing standalone source code is a working prototype, **not** proof that the mandatory process has happened. Three substantive planning drafts now exist in `devpost/scope.md`, `devpost/prd.md`, and `devpost/spec.md` with `status: draft` and transparent provenance; they are NOT marked approved and do NOT establish use of the official skills. Genuine learner interviews/reviews are still required.
 
 ## Entrant's real steps
 1. Clone this competition-period repository locally, install Git and Node.js.
