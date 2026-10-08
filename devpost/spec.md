@@ -68,3 +68,6 @@ devpost/                    Competition process and planning files
 - **Safety:** not suitable as a production approval endpoint.
 - **Learner review required:** stack choice, local-only vs. optional deployment, storage limitation, and appearance must be confirmed in a genuine Skill Pack conversation.
 - **Process requirement not met:** an actual `1-start → 2-scope → 3-prd → 4-spec → 5-build` journey with participant input has not yet been evidenced. This file is a draft rather than a backdated artifact.
+
+## Entrant Decision — 2026-10-08
+The entrant selected a simulated end-to-end product, not a real agent connector. The existing in-memory approach is consistent with that product boundary. This does not constitute approval of the technical architecture or proof that the official `4-spec` skill ran.
