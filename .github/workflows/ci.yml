@@ -13,3 +13,5 @@ jobs:
       - run: npm test
       - name: Boundary conformance (fail on regressions)
         run: node conformance/run.mjs
+      - name: Verify external adapter entry point
+        run: HUMANQ_ADAPTER=./conformance/adapter.mjs node conformance/run.mjs
