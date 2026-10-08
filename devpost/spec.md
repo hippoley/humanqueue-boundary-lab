@@ -71,3 +71,13 @@ devpost/                    Competition process and planning files
 
 ## Entrant Decision — 2026-10-08
 The entrant selected a simulated end-to-end product, not a real agent connector. The existing in-memory approach is consistent with that product boundary. This does not constitute approval of the technical architecture or proof that the official `4-spec` skill ran.
+
+## Confirmed Invariants and Verification Mapping — 2026-10-08
+The entrant confirmed that **exact-task decision return and duplicate-execution prevention** are the project’s primary proof, rather than basic approval UI.
+
+- `src/core.js > decide`: identify one pending task by exact request ID, reject further decisions with a 409-equivalent response, append outcome events only for the first valid decision.
+- `test/core.test.js`: independently assert other tasks remain unchanged, duplicates do not append audit events, and invalid decisions do not resolve a request.
+- `conformance/run.mjs`: machine-readable checks for request identity, wrong-task protection, duplicate resolution, invalid decision, and audit sequence; untested production guarantees remain `NOT_TESTED`.
+- `src/index.html`: demo UI represents the result as **simulated**; do not imply an actual Codex/Claude execution resumed.
+
+This is a confirmed acceptance direction, not a claim the official Skill Pack was run or that the full architecture was approved.
