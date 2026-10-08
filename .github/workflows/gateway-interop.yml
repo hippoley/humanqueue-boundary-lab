@@ -1,0 +1,51 @@
+name: Real HumanQueue Gateway interoperability
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'interop/**'
+      - 'conformance/adapters/humanqueue-gateway.mjs'
+      - '.github/workflows/gateway-interop.yml'
+jobs:
+  gateway-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: boundary-lab
+      - uses: actions/checkout@v4
+        with:
+          repository: hippoley/HumanQueue
+          path: real-humanqueue
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install real Gateway
+        run: python -m pip install ./real-humanqueue
+      - name: Start isolated Gateway
+        shell: bash
+        run: |
+          export HUMAN_QUEUE_HOME="$RUNNER_TEMP/humanq-isolated"
+          export HUMAN_QUEUE_DB="$RUNNER_TEMP/humanq-isolated/gateway.sqlite"
+          export HUMAN_QUEUE_DISABLE_BACKGROUND_WORKERS=1
+          mkdir -p "$HUMAN_QUEUE_HOME"
+          python -m uvicorn app.main:app --app-dir real-humanqueue --host 127.0.0.1 --port 7482 > "$RUNNER_TEMP/gateway.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/gateway.pid"
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:7482/health > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat "$RUNNER_TEMP/gateway.log"
+          exit 1
+      - name: Verify exact-task isolation and duplicate rejection over HTTP
+        working-directory: boundary-lab
+        env:
+          HUMANQ_GATEWAY_URL: http://127.0.0.1:7482
+        run: node interop/gateway-smoke.mjs
+      - name: Print safe Gateway diagnostics on failure
+        if: failure()
+        run: tail -n 80 "$RUNNER_TEMP/gateway.log" || true
