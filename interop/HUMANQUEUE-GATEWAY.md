@@ -33,3 +33,17 @@ This assessment is based on source inspection of [hippoley/HumanQueue](https://g
 7. Adapt `conformance/run.mjs` to the Gateway's actual action and event vocabulary rather than falsifying uniform semantics.
 
 **Current verification: SOURCE_REVIEW_ONLY.** No real Gateway HTTP conformance run has yet been performed. No third-party adoption or endorsement is claimed.
+
+## Executable isolated HTTP probe (new)
+
+The repository now contains `conformance/adapters/humanqueue-gateway.mjs` and `interop/gateway-smoke.mjs`. They target the **actual** Gateway routes, and the smoke script checks only two justified invariants: exact-task isolation and duplicate resolution. These have **not yet been run against a live Gateway**.
+
+After starting a fresh isolated HumanQueue Gateway, with test-only storage and no live channels or resume callbacks:
+
+```sh
+HUMANQ_GATEWAY_URL=http://127.0.0.1:7482 node interop/gateway-smoke.mjs
+```
+
+If your isolated Gateway requires a token, supply `HUMANQ_GATEWAY_TOKEN` securely through the environment. The adapter creates and resolves real persisted Gateway requests; **do not point it at production**. It does not claim end-to-end native resume or exactly-once external side effects.
+
+The general `conformance/run.mjs` currently assumes Lab-specific audit event names and invalid-decision HTTP status. **Do not report its result as valid Gateway conformance** until these semantic differences are formalized in the runner. Use the narrower Gateway smoke script for now.
